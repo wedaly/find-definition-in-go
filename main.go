@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 
 	"golang.org/x/tools/go/packages"
 )
@@ -117,6 +118,10 @@ func lookupAndPrintGoDef(path string, line int, col int) error {
 func normalizePath(p string) string {
 	cwd, err := os.Getwd()
 	if err != nil {
+		return p
+	}
+
+	if !strings.HasPrefix(p, cwd) {
 		return p
 	}
 
