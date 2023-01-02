@@ -14,7 +14,7 @@ Lookup a definition:
 ./find-definition-in-go main.go 32 8
 ```
 
-The output should look like this:
+You should see this output:
 ```
-"lookupAndPrintGoDef" is defined at /Users/will/go/src/github.com/wedaly/find-definition-in-go/main.go:39:6
+"lookupAndPrintGoDef" is defined at main.go:39:6
 ```

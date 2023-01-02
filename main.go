@@ -109,7 +109,21 @@ func lookupAndPrintGoDef(path string, line int, col int) error {
 	}
 
 	defPosition := pkg.Fset.Position(obj.Pos())
-	fmt.Printf("%q is defined at %s:%d:%d\n", obj.Name(), defPosition.Filename, defPosition.Line, defPosition.Column)
+	fmt.Printf("%q is defined at %s:%d:%d\n", obj.Name(), normalizePath(defPosition.Filename), defPosition.Line, defPosition.Column)
 
 	return nil
+}
+
+func normalizePath(p string) string {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return p
+	}
+
+	relPath, err := filepath.Rel(cwd, p)
+	if err != nil {
+		return p
+	}
+
+	return relPath
 }
