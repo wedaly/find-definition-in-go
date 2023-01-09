@@ -1,6 +1,6 @@
 # find-definition-in-go
 
-Example code for finding a Go definition.
+Example code for finding a Go definition. For a full walkthrough, please see my blog post [implement "find definition" in 77 lines of go](https://dev-nonsense.com/posts/find-definition-in-go/).
 
 ## Usage
 
